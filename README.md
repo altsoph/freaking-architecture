@@ -1,4 +1,4 @@
-# Nerfies
+# Freaking Architecture
 
 This is the repository that contains source code for the [Freaking Architecture project website](https://altsoph.github.io/freaking-architecture/).
 
