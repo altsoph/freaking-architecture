@@ -195,8 +195,8 @@
             <ul>
               <li>Handpicked 50 architectural images (mostly brutalist and futuristic buildings and monuments) were passed once through a <a target="_blank" href="https://github.com/pharmapsychotic/clip-interrogator">CLIP-interrogator</a> to obtain characteristic seed keyphrases.</li>
               <li>The 408 seed phrases remaining after postprocessing are randomly combined 14-17 at a time, and fed to the input of the <a target="_blank" href="https://huggingface.co/runwayml/stable-diffusion-v1-5">Stable Diffusion 1.5</a> model.</li>
-              <li>The resulting 512x512 images are passed through the <a target="_blank" href="https://huggingface.co/docs/transformers/main/en/model_doc/blip-2">BLIP2</a> model to generate a human-readable signature.</li>
-              <li>Finally, the same images + signatures are fed to the img2img input of the <a target="_blank" href="https://clipdrop.co/stable-diffusion">SDXL</a> model to generate the final images that are streamed to the channels.</li>
+              <li>The resulting 512x512 images are passed through the <a target="_blank" href="https://huggingface.co/docs/transformers/main/en/model_doc/blip-2">BLIP2</a> model to generate a human-readable descriptions.</li>
+              <li>Finally, the seed phrases + these new descptions are fed to the img2img input of the <a target="_blank" href="https://clipdrop.co/stable-diffusion">SDXL</a> model to generate the final images that are streamed to the channels in an  unsupervised manner.</li>
             </ul>
           </p>
 
