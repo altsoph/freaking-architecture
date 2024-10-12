@@ -187,7 +187,7 @@
         <h2 class="title is-3">Project Description</h2>
         <div class="content has-text-justified">
           <p>
-            We present an ensemble of neural networks (CLIP -> SD1.5 -> BLIP2 -> SDXL) using the "kaleidoscope principle" to cascade random combinations of keywords into an unmoderated stream of captioned architectural postcards published daily in channels on <a  target=_blank href="https://botsin.space/@freakingarchitecture">mastodon</a>, <a  target=_blank href="https://www.tumblr.com/freaking-architecture">tumblr</a>, <a target=_blank href="https://bsky.app/profile/freakingarch.bsky.social">bluesky</a>, <a  target=_blank href="https://t.me/s/freakingarchitecture">telegram</a>.
+            We present an ensemble of neural networks (CLIP -> SD1.5 -> BLIP2 -> SDXL) using the "kaleidoscope principle" to cascade random combinations of keywords into an unmoderated stream of captioned architectural postcards published daily in channels on <a  target=_blank href="https://botsin.space/@freakingarchitecture">mastodon</a>, <a  target=_blank href="https://www.tumblr.com/freaking-architecture">tumblr</a>, <a target=_blank href="https://bsky.app/profile/freakingarch.bsky.social">bluesky</a>, <a  target=_blank href="https://t.me/s/freakingarchitecture">telegram</a>. The paper on this project, "Machine Apophenia: The Kaleidoscopic Generation of Architectural Images", was presented at <a href="https://humain.thws.ai/">HuMaIn</a> @ <a href="https://www.informatik.uni-wuerzburg.de/ki24/">KI 2024</a>.
           </p>
             <img src="./static/images/farch_schema_upd.png"
                  alt="Freaking architecture schema"/>
@@ -311,6 +311,46 @@
 
     <div class="columns is-centered">
       <div class="column is-full-width">
+        <h2 class="title is-3">Evaluation</h2>
+
+        <div class="content has-text-justified">
+          <p>The study utilizes both technical and aesthetic metrics to evaluate the generated images. To comprehensively assess the quality and relevance of the generated architectural images, we use Image Quality Assessment metrics developed in the <a href="https://github.com/idealo/image-quality-assessment">NIMA project</a>. Specifically, we apply pre-trained "aesthetic" and "technical" models, and each returns a score from 1 to 10. The first model aims to address the aesthetic aspects of the image, and the second tries to evaluate the "clearness" of the picture (in terms of visual artifacts).
+
+          <p>We used both to evaluate our approach and to show how each of its steps improves both scores. To isolate the contributions of various system components, we conducted a series of ablation studies comparing different model configurations. We used 1000 images produced by each pipeline version to evaluate average scores. The key observation from this evaluation is that each system component contributes significantly to the final result. Each step in our multi-step process contributes to the overall enhancement of the generated images. The iterative refinement stages, from initial seed generation to final image refinement, result in higher aesthetic and technical scores compared to more straightforward, single-step approaches.
+
+            <div class="item is-centered">
+              <img src="./static/images/eval.png"
+                 alt="Freaking architecture: Quality Assessment"/>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Observational Study</h2>
+
+        <div class="content has-text-justified">
+          <p>To understand the impact of different keyphrases on user engagement, we conducted a factor analysis based on one year of data collected from emoji reactions on our Telegram channel. This analysis aimed to identify which keyphrases significantly influenced user engagement, measured through the conversion rate of emoji feedback. The conversion rate was calculated as the percentage of images that received emoji reactions out of the total number of images containing a specific keyphrase. This metric served as a proxy for user engagement.
+
+
+            <div class="item is-centered">
+              <img src="./static/images/obs.png" class="is-centered"
+                 alt="Freaking architecture: Keyphrases and their conversion rates"/>
+            </div>
+          <p>The images corresponding to queries with high concentrations of high and low engaging keyphrases are pretty illustrative: they highlight the differences in user engagement based on the keyphrases used.
+            <div class="item is-centered">
+              <img src="./static/images/obs2.png" class="is-centered"
+                 alt="Freaking architecture: Examples of images corresponding to queries with high concentrations of high/low-engaging keyphrases."/>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
         <h2 class="title is-3">Latent Space Exploration</h2>
 
         <div class="content has-text-justified">
@@ -357,10 +397,14 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@misc{FreakingArchitecture,
-  author = {Tikhonov, Alexey and Sinyavin, Dmitry},
-  title = {Freaking Architecture: a kaleidoscopic approach to unsupervised architectural content generation},
-  year = 2024,
-  url = {https://altsoph.github.io/freaking-architecture/},
+      title={Machine Apophenia: The Kaleidoscopic Generation of Architectural Images}, 
+      author={Alexey Tikhonov and Dmitry Sinyavin},
+      year={2024},
+      eprint={2407.09172},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2407.09172}, 
+      url = {https://altsoph.github.io/freaking-architecture/},
 }
 </code></pre>
   </div>
